@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allabakash Jewelry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf6;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(to right, #f4e8dc, #f6e7d7);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: blueviolet;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #5a3e36;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #a67c52;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #home {
+  background: url('./Background2.jpg');
+  background-repeat: no-repeat;
+  background-size: 500px auto; /* or a specific size */
+  background-position: center top;
+  color: black;
+  padding: 6rem 2rem;
+}
+
+    #home h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    #home p {
+      font-size: 1.2rem;
+    }
+    #home button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #c59d5f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #home button:hover {
+      background-color: #a67c52;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #5a3e36;
+    }
+    .product p {
+      color: #777;
+    }
+    .product button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #b28959;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product button:hover {
+      background-color: #8f663d;
+    }
+    form input, form textarea {
+      width: 90%;
+      max-width: 500px;
+      padding: 0.7rem;
+      margin: 0.5rem auto;
+      display: block;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #c59d5f;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #a67c52;
+    }
+    footer {
+      background-color: #f4e8dc;
+      padding: 1rem;
+      text-align: center;
+      color: #5a3e36;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nayeem Jewelry</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to Nayeem Jewelry</h2>
+    <p>Discover the finest handcrafted jewelry that makes you shine every day.</p>
+    <p>If you want to make jewelry, contact: <strong>9704002363</strong></p>
+    <button onclick="scrollToProducts()">Shop Now</button>
+  </section>
+
+  <section id="products">
+    <h2>Our Jewelry Collection</h2>
+    <div class="product-grid" id="product-list"></div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>At  Nayeem Jewelry</strong> we craft exquisite jewelry pieces tailored to your selected designs, ensuring each creation reflects your unique style and vision.</p>
+    <br>
+     <p> We create jewelry designed especially for traditional Muslim weddings.</p>
+     <br>
+     <hr>
+     <p><strong>9704002363</strong> This is my personal number contact me</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Allabakash Jewelry. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: 'Gold Necklace', price: "price is based on weight", image: './images.jpg' },
+      { id: 2, name: 'Gold Earrings', price: "price is based on weight", image: './1603.1.webp' },
+      { id: 3, name: 'Silver Bracelet', price: "price is based on weight", image: './pearl.jpg' },
+      { id: 4, name: 'Pearl Ring', price: "price is based on weight", image: './pearl_image.jpg' },
+    { id: 5, name: 'Phool Haar', price: "price is based on weight", image: './Phool haar.jpg' },
+   { id: 6, name: 'Chain Necklace', price: "price is based on weight", image: './chain_niklace.jpg' },
+   { id: 7, name: 'Golden Locket', price: "Gold hearted locket Based on Weight", image: './Locket.jpg' },
+    { id: 7, name: 'Chain_anklet', price: "Chain Anklet Based on Weigh", image: './ChainAnklets2.jpg' },
+    ];
+
+    const cart = [];
+    const productList = document.getElementById('product-list');
+    const cartCount = document.getElementById('cart-count');
+
+    function updateCart() {
+      cartCount.textContent = cart.length;
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        cart.push(product);
+        updateCart();
+        alert(`${product.name} added to cart!`);
+      }
+    }
+
+    function renderProducts() {
+      products.forEach(product => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>Price: $${product.price}</p>
+          <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productList.appendChild(div);
+      });
+    }
+
+    function scrollToProducts() {
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for contacting us!');
+      this.reset();
+    });
+
+    renderProducts();
+  </script>
+</body>
+</html>
